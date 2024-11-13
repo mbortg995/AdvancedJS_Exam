@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <title>DE RUTA CON MIGUEL</title>
+</head>
+<body>
+  <div class="header" id="header">
+    <div class="event_name" id="event_name">
+      <h1>De Ruta con Miguel</h1>
+      <h2>Organizado por Motoclub Bort</h2>
+      <p>Un emocionante evento motociclista no competitivo que tiene lugar en el encantador Pirineo catalán,
+        aragonés y francés, con inicio y final en Vielha. En cada edición, el itinerario es una incógnita que se
+        descubre a través de la navegación con roadbook…</p>
+    </div>
+  </div>
+  <div class="event_info" id="event_info">
+    <div class="event_detail">
+      <h3>¿Dónde?</h3>
+      <p>Avenida Puga, 34, 13° 3ª, 74743, Villa Regalado</p>
+    </div>
+    <div class="event_detail">
+      <h3>¿Cuándo?</h3>
+      <p>22 mayo 2024 - 02:00 - Cierre</p>
+    </div>
+  </div>
+  <div class="body" id="body">
+    <form>
+      <div class="form" id="form">
+        <h2>¡No te quedes sin entradas!</h2>
+        <label for="name">Nombre completo</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="confirm-email">Confirma tu correo electrónico</label>
+        <input type="email" id="confirm-email" name="confirm-email" required>
+
+        <label for="tickets">Número de entradas</label>
+        <select id="tickets" name="tickets" required>
+          <option value="">Seleccione</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button type="submit">Comprar entradas</button>
+      </div>
+    </form>
+
+  </div>
+  <script src="./main.js"></script>
+</body>
+</html>
