@@ -30,10 +30,19 @@ function setvalues(a){
   const location = document.getElementById('location');
   location.innerText = a.event.address;
 
-  // OJO REVISAR: FALTA FORMATEAR LA FECHA
+  // Formateo de fecha
   const time = document.getElementById('time');
   const date_event = a.event.start_at;
   const formatted_date_event = new Date(date_event);
+
+  const dateoptions = { day: 'numeric', month: 'long', year: 'numeric',};
+  const formatted_date = formatted_date_event.toLocaleDateString('es-ES', dateoptions);
+
+  const houroptions = { hour: '2-digit', minute: '2-digit', hour12: false,};
+  const formatted_hour = formatted_date_event.toLocaleTimeString('es-ES', houroptions);
+
+  const final_date_hour = `${formatted_date} - ${formatted_hour}`;
+  time.innerText = final_date_hour + ' - Cierre';
 
   // Numero de tickes maximo definido por el máximo de tickets en la API
   const tickets = document.getElementById('tickets');
@@ -51,14 +60,72 @@ async function connectAPI(){
   const api_response = await response.json();
   console.log(api_response);
   setvalues(api_response);
+
+  const submit = document.getElementById('submit');
+  if(api_response.event.booking_open = false) {
+    submit.disabled = true;
+    submit.setAttribute('disabled', true);
+  }
 }
 
-function capture_form(){
+async function submit_form(){
+  const endpoint = 'https://demo.tesserapass.es/api/company/feending/events/5/orders';
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const confirm_email = document.getElementById('confirm_email').value;
+  const ticket = parseInt(document.getElementById('tickets').value, 10);
+
+  if (email !== confirm_email) {
+    alert('El correo electrónico y la confirmación no coinciden. Por favor, verifica los campos.');
+    return;
+  }
+
+  // JSON para el POST. Hay que hacer un pequeño bucle en función del número de tickets.
+
+  const data = {
+    order: {
+      full_name: name,
+      email: email,
+      rrpp: '',
+      total_price: 0,
+      confirmed_email: confirm_email,
+    },
+    tickets: Array.from({ length: ticket,}, () => ({
+      product_id: '7',
+      full_name: name,
+      email: email,
+    })),
+  };
+
+  try {
+    // Realiza la solicitud POST a la API
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    console.log('Pedido realizado:', result);
+    alert('Entradas compradas con éxito!');
+  } catch (error) {
+    console.error('Error al realizar el pedido:', error);
+    alert('Ocurrió un error al comprar las entradas.');
+  }
 
 }
 
 function main(){
   connectAPI();
+  const submit = document.getElementById('submit');
+  submit.addEventListener('click', () => submit_form());
 }
 
 main();
