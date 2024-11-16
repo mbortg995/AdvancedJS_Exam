@@ -10,23 +10,15 @@
   <title>DE RUTA CON MIGUEL</title>
 </head>
 <body>
-  <div class="header" id="header">
-    <div class="event_name" id="event_name">
-      <h1>De Ruta con Miguel</h1>
-      <h2>Organizado por Motoclub Bort</h2>
-      <p>Un emocionante evento motociclista no competitivo que tiene lugar en el encantador Pirineo catalán,
-        aragonés y francés, con inicio y final en Vielha. En cada edición, el itinerario es una incógnita que se
-        descubre a través de la navegación con roadbook…</p>
-    </div>
-  </div>
+  <div class="header" id="header"></div>
   <div class="event_info" id="event_info">
     <div class="event_detail">
       <h3>¿Dónde?</h3>
-      <p>Avenida Puga, 34, 13° 3ª, 74743, Villa Regalado</p>
+      <p class="location" id="location"></p>
     </div>
     <div class="event_detail">
       <h3>¿Cuándo?</h3>
-      <p>22 mayo 2024 - 02:00 - Cierre</p>
+      <p class="time" id="time">22 mayo 2024 - 02:00 - Cierre</p>
     </div>
   </div>
   <div class="body" id="body">
@@ -44,14 +36,13 @@
 
         <label for="tickets">Número de entradas</label>
         <select id="tickets" name="tickets" required>
-          <option value="">Seleccione</option>
-          <option value="1">1</option>
+          <!-- <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="5">5</option> -->
         </select>
-        <button type="submit">Comprar entradas</button>
+        <button type="submit" id="submit">Comprar entradas</button>
       </div>
     </form>
 
