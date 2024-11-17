@@ -117,7 +117,7 @@ async function submit_form(){
     alert('Entradas compradas con éxito!');
   } catch (error) {
     console.error('Error al realizar el pedido:', error);
-    alert('Ocurrió un error al comprar las entradas.');
+    alert('Ocurrió un error al comprar las entradas. Actualice e intente de nuevo más adelante.');
   }
 
 }
