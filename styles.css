@@ -12,14 +12,13 @@
   display: flex;
   align-items: end;
   justify-content: center;
-  /* background-image: url('https://images.unsplash.com/photo-1709199944399-8e645cdb7102'); */
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
 }
 
 .img {
-  width: 100%; /* Hace que la imagen ocupe todo el contenedor */
+  width: 100%;
   height: auto;
   display: block;
 }

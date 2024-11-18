@@ -60,12 +60,11 @@ async function connectAPI(){
   const api_response = await response.json();
   console.log(api_response);
   setvalues(api_response);
-
-  const submit = document.getElementById('submit');
-  if(api_response.event.booking_open = false) {
-    submit.disabled = true;
-    submit.setAttribute('disabled', true);
-  }
+  // const submit = document.getElementById('submit');
+  // if(api_response.event.booking_open = false) {
+  //   submit.setAttribute('disabled', true);
+  //   submit.disabled = true;
+  // }
 }
 
 async function submit_form(){
@@ -89,7 +88,7 @@ async function submit_form(){
       email: email,
       rrpp: '',
       total_price: 0,
-      confirmed_email: confirm_email,
+      confirmed_email: email,
     },
     tickets: Array.from({ length: ticket,}, () => ({
       product_id: '7',
@@ -103,10 +102,12 @@ async function submit_form(){
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json; charset=UTF-8',
       },
       body: JSON.stringify(data),
     });
+
+    console.log(data);
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
