@@ -68,12 +68,12 @@ async function connectAPI(){
 }
 
 async function submit_form(){
-  const endpoint = 'https://demo.tesserapass.es/api/company/feending/events/5/orders';
+  const endpoint = 'https://demo.tesserapass.es/api/company/de-ruta-con-miguel/events/5/orders';
 
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const confirm_email = document.getElementById('confirm_email').value;
-  const ticket = parseInt(document.getElementById('tickets').value, 10);
+  const ticket = parseInt(document.getElementById('tickets').value);
 
   if (email !== confirm_email) {
     alert('El correo electrónico y la confirmación no coinciden. Por favor, verifica los campos.');
@@ -91,7 +91,7 @@ async function submit_form(){
       confirmed_email: email,
     },
     tickets: Array.from({ length: ticket,}, () => ({
-      product_id: '7',
+      product_id: 6,
       full_name: name,
       email: email,
     })),
@@ -107,7 +107,7 @@ async function submit_form(){
       body: JSON.stringify(data),
     });
 
-    console.log(data);
+    // console.log(data);
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -126,7 +126,10 @@ async function submit_form(){
 function main(){
   connectAPI();
   const submit = document.getElementById('submit');
-  submit.addEventListener('click', () => submit_form());
+  submit.addEventListener('click', (event) => {
+    event.preventDefault();
+    submit_form();
+  });
 }
 
 main();
