@@ -121,3 +121,25 @@
   width: 100%;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 550px) {
+  .event_info{
+    flex-direction: column;
+    height: auto;
+  }
+  .event_name h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #E6E6E6;
+    margin-bottom: 6px;
+  }
+
+  .event_name h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #E6E6E6;
+    margin-bottom: 16px;
+  }
+
+
+}

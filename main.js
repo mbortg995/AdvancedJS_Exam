@@ -16,7 +16,7 @@ function setvalues(a){
 
   const h2_event_name = document.createElement('h2');
   event_name.appendChild(h2_event_name);
-  h2_event_name.innerText = 'Organizado por ' + a.company.name;
+  h2_event_name.innerText = 'Organizado por: ' + a.company.name;
 
   const p_event_name = document.createElement('p');
   event_name.appendChild(p_event_name);
