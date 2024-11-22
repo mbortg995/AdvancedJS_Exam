@@ -17,47 +17,35 @@
   background-repeat: repeat;
 }
 
-.img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .event_name{
-  /* background-color: yellowgreen; */
-  height: 10vh;
   width: 65%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
-  position: absolute;
 }
 
 .event_name h1{
   font-size: 20px;
   font-weight: bold;
   color: #E6E6E6;
-  position: absolute;
-  /* margin-bottom: 5px; */
+  margin-bottom: 6px;
 }
 
 .event_name h2{
   font-size: 18px;
   font-weight: bold;
   color: #E6E6E6;
-  /* margin-bottom: 5px; */
+  margin-bottom: 16px;
 }
 
 .event_name p{
   font-size: 18px;
   color: #E6E6E6;
+  margin-bottom: 20px;
 }
 
-
-
 .event_info{
-  background-color:#E6E6E6;
-  height: 10vh;
+  background-color:#F8F8F8;
+  height: 12vh;
   width: 100%;
   display:flex;
   align-items: center;
@@ -65,15 +53,22 @@
 }
 
 .event_detail {
-  background-color: #E6E6E6;
+  margin-top: 22px;
+  background-color: #F8F8F8;
   padding: 15px;
-  border-left: 5px solid orange; /* Barra lateral naranja */
-  padding-left: 15px; /* Ajusta el padding para la barra */
-  margin-left: 50px;
+  border-left: 5px solid #DF8F55; /* Barra lateral naranja */
+  /* padding-left: 15px; */
+  margin-left: 28px;
+  border-top: 1px solid #E6E6E6;
+  border-bottom: 1px solid #E6E6E6;
+  border-right: 1px solid #E6E6E6;
+
+
 }
 .event_detail h3{
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 12px;
 }
 
 .event_detail p{
@@ -82,7 +77,7 @@
 
 .body{
   background-color: #F8F8F8;
-  height: 60vh;
+  height: 58vh;
   width: 100%;
   display:flex;
 
@@ -90,13 +85,39 @@
 }
 
 .form{
-  margin-top: 25px;
+  margin-top: 58px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   background-color: #F8F8F8;
-  border-color: black;
-  border-style: solid;
+}
+
+.form h2{
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 48px;
+}
+
+.form label {
+  font-size: 18px;
+  font-weight:semibold;
+  margin-bottom: 12px;
+}
+
+.form input, select{
+  margin-bottom: 16px;
+  border: 1px solid #929292;
+  border-radius: 5px;
+  height: 30px;
+  width: 100%;
+}
+
+.form button{
+  margin-top: 26px;
+  background-color: #392A1F;
+  color: #F8F8F8;
+  height: 30px;
+  width: 100%;
   border-radius: 5px;
 }

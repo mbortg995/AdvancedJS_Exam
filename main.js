@@ -3,12 +3,7 @@ const endpoint = 'https://demo.tesserapass.es/api/company/de-ruta-con-miguel/eve
 function setvalues(a){
   // Capturamos con DOM los elementos de la web y le metemos elementos del JSON de la API.
   const header_div = document.getElementById('header');
-
-  // Creo elemento img y le meto de source el link de la imagen. Lo chuto dentro de header.
-  const img = document.createElement('img');
-  header_div.appendChild(img);
-  img.setAttribute('class', 'img');
-  img.src = a.event.image;
+  header_div.style.backgroundImage = 'url('+a.event.image+')';
 
   // Creo un div para la cabecera del evento. Nombre del evento + descripcion.
   const event_name = document.createElement('div');
@@ -17,14 +12,15 @@ function setvalues(a){
 
   const h1_event_name = document.createElement('h1');
   event_name.appendChild(h1_event_name);
-  h1_event_name.innerText = a.company.name;
-
-  const br = document.createElement('br');
-  event_name.appendChild(br);
+  h1_event_name.innerText = a.event.name;
 
   const h2_event_name = document.createElement('h2');
   event_name.appendChild(h2_event_name);
-  h2_event_name.innerText = a.event.description;
+  h2_event_name.innerText = 'Organizado por ' + a.company.name;
+
+  const p_event_name = document.createElement('p');
+  event_name.appendChild(p_event_name);
+  p_event_name.innerText = a.event.description;
 
   // Vamos a la parte del donde y cuando.
   const location = document.getElementById('location');
