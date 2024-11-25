@@ -126,20 +126,50 @@
   .event_info{
     flex-direction: column;
     height: auto;
+    padding-right: 40px;
+  }
+
+  .event_name{
+    padding-top: 25px;
   }
 
   .event_name h1 {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: bold;
     color: #E6E6E6;
     margin-bottom: 6px;
   }
 
   .event_name h2 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #E6E6E6;
     margin-bottom: 16px;
+  }
+
+  .event_name p{
+    font-size: 13px;
+  }
+
+  .header{
+    height: auto;
+  }
+
+  .form{
+    align-items: center;
+    padding-bottom: 50px;
+  }
+
+  .form label{
+    font-size: 17px;
+  }
+
+  .form h2{
+    font-size: 22px;
+  }
+
+  .form button{
+    font-size: 16px;
   }
 
 

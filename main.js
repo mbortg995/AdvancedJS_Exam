@@ -112,6 +112,7 @@ async function submit_form(){
     const result = await response.json();
     console.log('Pedido realizado:', result);
     alert('Entradas compradas con éxito!');
+    location.reload();
   } catch (error) {
     console.error('Error al realizar el pedido:', error);
     alert('Ocurrió un error al comprar las entradas. Actualice e intente de nuevo más adelante.');
