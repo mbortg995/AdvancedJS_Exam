@@ -145,6 +145,7 @@
     font-weight: bold;
     color: #E6E6E6;
     margin-bottom: 16px;
+    /* display: none; */
   }
 
   .event_name p{
