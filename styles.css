@@ -122,6 +122,51 @@
   border-radius: 5px;
 }
 
+.confirmed_form{
+  margin-top: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F8F8F8;
+  width: 80vw;
+}
+
+.confirmed_form h2{
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 48px;
+}
+
+.confirmed_form p {
+  font-size: 18px;
+  font-weight:semibold;
+  margin-bottom: 12px;
+}
+
+.error_form{
+  margin-top: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F8F8F8;
+  width: 80vw;
+}
+
+.error_form h2{
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 48px;
+}
+
+.error_form p {
+  font-size: 18px;
+  font-weight:semibold;
+  margin-bottom: 12px;
+}
+
+
 @media screen and (max-width: 550px) {
   .event_info{
     flex-direction: column;
@@ -172,6 +217,15 @@
   .form button{
     font-size: 16px;
   }
+
+  .confirmed_form h2{
+    font-size: 20px;
+  }
+
+  .confirmed_form p{
+    font-size: 14px;
+  }
+
 
 
 }

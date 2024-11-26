@@ -111,11 +111,23 @@ async function submit_form(){
 
     const result = await response.json();
     console.log('Pedido realizado:', result);
-    alert('Entradas compradas con éxito!');
-    location.reload();
+    // alert('Entradas compradas con éxito!');
+
+    const form =  document.getElementById('form');
+    form.setAttribute('style', 'display: none;');
+    const confirmed_form = document.getElementById('confirmed_form');
+    confirmed_form.removeAttribute('style');
+    const p_form = document.getElementById('mail_reponse');
+    p_form.textContent = `Hemos enviado un correo a ${email} con las entradas. Por favor, en caso de no verlo en la bandeja principal, revise SPAM.
+    Gracias.`;
+
   } catch (error) {
     console.error('Error al realizar el pedido:', error);
-    alert('Ocurrió un error al comprar las entradas. Actualice e intente de nuevo más adelante.');
+    // alert('Ocurrió un error al comprar las entradas. Actualice e intente de nuevo más adelante.');
+    const form =  document.getElementById('form');
+    form.setAttribute('style', 'display: none;');
+    const confirmed_form = document.getElementById('error_form');
+    error_form.removeAttribute('style');
   }
 
 }
