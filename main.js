@@ -1,34 +1,30 @@
 const endpoint = 'https://demo.tesserapass.es/api/company/de-ruta-con-miguel/events/5';
 
-function setvalues(a){
-  // Capturamos con DOM los elementos de la web y le metemos elementos del JSON de la API.
+function displayValues(data){
   const header_div = document.getElementById('header');
-  header_div.style.backgroundImage = 'url('+a.event.image+')';
+  header_div.style.backgroundImage = `url(${data.event.image})`;
 
-  // Creo un div para la cabecera del evento. Nombre del evento + descripcion.
   const event_name = document.createElement('div');
   header_div.appendChild(event_name);
   event_name.setAttribute('class', 'event_name');
 
   const h1_event_name = document.createElement('h1');
   event_name.appendChild(h1_event_name);
-  h1_event_name.innerText = a.event.name;
+  h1_event_name.innerText = data.event.name;
 
   const h2_event_name = document.createElement('h2');
   event_name.appendChild(h2_event_name);
-  h2_event_name.innerText = 'Organizado por: ' + a.company.name;
+  h2_event_name.innerText = `Organizado por: ${data.company.name}`;
 
   const p_event_name = document.createElement('p');
   event_name.appendChild(p_event_name);
-  p_event_name.innerText = a.event.description;
+  p_event_name.innerText = data.event.description;
 
-  // Vamos a la parte del donde y cuando.
   const location = document.getElementById('location');
-  location.innerText = a.event.address;
+  location.innerText = data.event.address;
 
-  // Formateo de fecha
   const time = document.getElementById('time');
-  const date_event = a.event.start_at;
+  const date_event = data.event.start_at;
   const formatted_date_event = new Date(date_event);
 
   const dateoptions = { day: 'numeric', month: 'long', year: 'numeric',};
@@ -40,9 +36,8 @@ function setvalues(a){
   const final_date_hour = `${formatted_date} - ${formatted_hour}`;
   time.innerText = final_date_hour + ' - Cierre';
 
-  // Numero de tickes maximo definido por el máximo de tickets en la API
   const tickets = document.getElementById('tickets');
-  for(let i =1; i<=a.event.max_tickets_for_order; i++){
+  for(let i =1; i<=data.event.max_tickets_for_order; i++){
     const ticket_option = document.createElement('option');
     ticket_option.setAttribute('value', i);
     ticket_option.innerText = i;
@@ -52,15 +47,16 @@ function setvalues(a){
 }
 
 async function connectAPI(){
-  const response = await fetch(endpoint);
-  const api_response = await response.json();
-  console.log(api_response);
-  setvalues(api_response);
-  // const submit = document.getElementById('submit');
-  // if(api_response.event.booking_open = false) {
-  //   submit.setAttribute('disabled', true);
-  //   submit.disabled = true;
-  // }
+
+  try {
+    const response = await fetch(endpoint);
+    const api_response = await response.json();
+    console.log(api_response);
+    displayValues(api_response);
+  } catch (error) {
+    console.error('Error al realizar el pedido:', error);
+  }
+
 }
 
 async function submit_form(){
@@ -75,8 +71,6 @@ async function submit_form(){
     alert('El correo electrónico y la confirmación no coinciden. Por favor, verifica los campos.');
     return;
   }
-
-  // JSON para el POST. Hay que hacer un pequeño bucle en función del número de tickets.
 
   const data = {
     order: {
@@ -94,7 +88,6 @@ async function submit_form(){
   };
 
   try {
-    // Realiza la solicitud POST a la API
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
@@ -103,15 +96,12 @@ async function submit_form(){
       body: JSON.stringify(data),
     });
 
-    // console.log(data);
-
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
     }
 
     const result = await response.json();
     console.log('Pedido realizado:', result);
-    // alert('Entradas compradas con éxito!');
 
     const form =  document.getElementById('form');
     form.setAttribute('style', 'display: none;');
@@ -123,7 +113,6 @@ async function submit_form(){
 
   } catch (error) {
     console.error('Error al realizar el pedido:', error);
-    // alert('Ocurrió un error al comprar las entradas. Actualice e intente de nuevo más adelante.');
     const form =  document.getElementById('form');
     form.setAttribute('style', 'display: none;');
     const confirmed_form = document.getElementById('error_form');

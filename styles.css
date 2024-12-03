@@ -57,7 +57,6 @@
   background-color: #F8F8F8;
   padding: 15px;
   border-left: 5px solid #DF8F55; /* Barra lateral naranja */
-  /* padding-left: 15px; */
   margin-left: 28px;
   border-top: 1px solid #E6E6E6;
   border-bottom: 1px solid #E6E6E6;
@@ -190,14 +189,13 @@
     font-weight: bold;
     color: #E6E6E6;
     margin-bottom: 16px;
-    /* display: none; */
   }
 
   .event_name p{
     font-size: 13px;
   }
 
-  .header{
+  .header {
     height: auto;
   }
 
@@ -225,7 +223,4 @@
   .confirmed_form p{
     font-size: 14px;
   }
-
-
-
 }
